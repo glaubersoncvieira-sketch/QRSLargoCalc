@@ -3,8 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculadora QRS Largo — TV vs TSV + IA</title>
-<style>
+<title>ECG TV-TSV — Calculadora QRS Largo</title>
+  <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkVDRyBUVi1UU1Yg4oCUIENhbGN1bGFkb3JhIiwKICAic2hvcnRfbmFtZSI6ICJFQ0cgVFYtVFNWIiwKICAiZGVzY3JpcHRpb24iOiAiQ2FsY3VsYWRvcmEgZGUgUVJTIExhcmdvOiBUViB2cyBUU1YgY29tIElBIiwKICAic3RhcnRfdXJsIjogIi4vIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjMEEwRjFFIiwKICAidGhlbWVfY29sb3IiOiAiIzBBMEYxRSIsCiAgIm9yaWVudGF0aW9uIjogImFueSIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIWnBaWGRDYjNnOUlqQWdNQ0ExTVRJZ05URXlJaUIzYVdSMGFEMGlOVEV5SWlCb1pXbG5hSFE5SWpVeE1pSStDaUFnUEdSbFpuTStDaUFnSUNBOGJHbHVaV0Z5UjNKaFpHbGxiblFnYVdROUltSm5JaUI0TVQwaU1DSWdlVEU5SWpBaUlIZ3lQU0l4SWlCNU1qMGlNU0krQ2lBZ0lDQWdJRHh6ZEc5d0lHOW1abk5sZEQwaU1DVWlJSE4wYjNBdFkyOXNiM0k5SWlNd1JERkNNelVpTHo0S0lDQWdJQ0FnUEhOMGIzQWdiMlptYzJWMFBTSXhNREFsSWlCemRHOXdMV052Ykc5eVBTSWpNRUV3UmpGRklpOCtDaUFnSUNBOEwyeHBibVZoY2tkeVlXUnBaVzUwUGdvZ0lDQWdQR3hwYm1WaGNrZHlZV1JwWlc1MElHbGtQU0owY21GalpTSWdlREU5SWpBaUlIa3hQU0l3SWlCNE1qMGlNU0lnZVRJOUlqQWlQZ29nSUNBZ0lDQThjM1J2Y0NCdlptWnpaWFE5SWpBbElpQnpkRzl3TFdOdmJHOXlQU0lqTWpVMk0wVkNJaTgrQ2lBZ0lDQWdJRHh6ZEc5d0lHOW1abk5sZEQwaU1UQXdKU0lnYzNSdmNDMWpiMnh2Y2owaUl6WXdRVFZHUVNJdlBnb2dJQ0FnUEM5c2FXNWxZWEpIY21Ga2FXVnVkRDRLSUNBZ0lEeG1hV3gwWlhJZ2FXUTlJbWRzYjNjaVBnb2dJQ0FnSUNBOFptVkhZWFZ6YzJsaGJrSnNkWElnYzNSa1JHVjJhV0YwYVc5dVBTSXpJaUJ5WlhOMWJIUTlJbUpzZFhJaUx6NEtJQ0FnSUNBZ1BHWmxUV1Z5WjJVK1BHWmxUV1Z5WjJWT2IyUmxJR2x1UFNKaWJIVnlJaTgrUEdabFRXVnlaMlZPYjJSbElHbHVQU0pUYjNWeVkyVkhjbUZ3YUdsaklpOCtQQzltWlUxbGNtZGxQZ29nSUNBZ1BDOW1hV3gwWlhJK0NpQWdQQzlrWldaelBnb2dJRHdoTFMwZ1FtRmphMmR5YjNWdVpDQnliM1Z1WkdWa0lITnhkV0Z5WlNBdExUNEtJQ0E4Y21WamRDQjNhV1IwYUQwaU5URXlJaUJvWldsbmFIUTlJalV4TWlJZ2NuZzlJakV4TUNJZ1ptbHNiRDBpZFhKc0tDTmlaeWtpTHo0S0lDQThJUzB0SUZOMVluUnNaU0JuY21sa0lDMHRQZ29nSUR4eVpXTjBJSGRwWkhSb1BTSTFNVElpSUdobGFXZG9kRDBpTlRFeUlpQnllRDBpTVRFd0lpQm1hV3hzUFNKdWIyNWxJaUJ6ZEhKdmEyVTlJaU14UlROQk5VWWlJSE4wY205clpTMTNhV1IwYUQwaU1TSWdiM0JoWTJsMGVUMGlNQzR6SWk4K0NpQWdQR3hwYm1VZ2VERTlJakUzTUNJZ2VURTlJamd3SWlCNE1qMGlNVGN3SWlCNU1qMGlORE15SWlCemRISnZhMlU5SWlNeFJUTkJOVVlpSUhOMGNtOXJaUzEzYVdSMGFEMGlNU0lnYjNCaFkybDBlVDBpTUM0MElpOCtDaUFnUEd4cGJtVWdlREU5SWpNME1DSWdlVEU5SWpnd0lpQjRNajBpTXpRd0lpQjVNajBpTkRNeUlpQnpkSEp2YTJVOUlpTXhSVE5CTlVZaUlITjBjbTlyWlMxM2FXUjBhRDBpTVNJZ2IzQmhZMmwwZVQwaU1DNDBJaTgrQ2lBZ1BHeHBibVVnZURFOUlqZ3dJaUI1TVQwaU1UY3dJaUI0TWowaU5ETXlJaUI1TWowaU1UY3dJaUJ6ZEhKdmEyVTlJaU14UlROQk5VWWlJSE4wY205clpTMTNhV1IwYUQwaU1TSWdiM0JoWTJsMGVUMGlNQzQwSWk4K0NpQWdQR3hwYm1VZ2VERTlJamd3SWlCNU1UMGlNelF3SWlCNE1qMGlORE15SWlCNU1qMGlNelF3SWlCemRISnZhMlU5SWlNeFJUTkJOVVlpSUhOMGNtOXJaUzEzYVdSMGFEMGlNU0lnYjNCaFkybDBlVDBpTUM0MElpOCtDaUFnUENFdExTQkZRMGNnWW1GelpXeHBibVVnYkdWbWRDQXRMVDRLSUNBOGJHbHVaU0I0TVQwaU16QWlJSGt4UFNJeU5UWWlJSGd5UFNJeE1EQWlJSGt5UFNJeU5UWWlJSE4wY205clpUMGlkWEpzS0NOMGNtRmpaU2tpSUhOMGNtOXJaUzEzYVdSMGFEMGlNVElpSUhOMGNtOXJaUzFzYVc1bFkyRndQU0p5YjNWdVpDSXZQZ29nSUR3aExTMGdVQ0IzWVhabElDMHRQZ29nSUR4d1lYUm9JR1E5SWsweE1EQXNNalUySUZFeE1USXNNakl3SURFeU5Dd3lOVFlpSUdacGJHdzlJbTV2Ym1VaUlITjBjbTlyWlQwaWRYSnNLQ04wY21GalpTa2lJSE4wY205clpTMTNhV1IwYUQwaU1USWlJSE4wY205clpTMXNhVzVsWTJGd1BTSnliM1Z1WkNJZ2MzUnliMnRsTFd4cGJtVnFiMmx1UFNKeWIzVnVaQ0l2UGdvZ0lEd2hMUzBnVUZJZ2MyVm5iV1Z1ZENBdExUNEtJQ0E4YkdsdVpTQjRNVDBpTVRJMElpQjVNVDBpTWpVMklpQjRNajBpTVRRNElpQjVNajBpTWpVMklpQnpkSEp2YTJVOUluVnliQ2dqZEhKaFkyVXBJaUJ6ZEhKdmEyVXRkMmxrZEdnOUlqRXlJaUJ6ZEhKdmEyVXRiR2x1WldOaGNEMGljbTkxYm1RaUx6NEtJQ0E4SVMwdElGRlNVeUJqYjIxd2JHVjRJQzBnZDJsa1pTQmlhWHBoY25KbElDaFVWaUJ3WVhSMFpYSnVLU0F0TFQ0S0lDQThjRzlzZVd4cGJtVWdjRzlwYm5SelBTSXhORGdzTWpVMklERTJNaXd5T0RBZ01UYzRMREV3TUNBeE9UUXNOREl3SURJeE1Dd3lOVFlpSUFvZ0lDQWdabWxzYkQwaWJtOXVaU0lnYzNSeWIydGxQU0oxY213b0kzUnlZV05sS1NJZ2MzUnliMnRsTFhkcFpIUm9QU0l4TkNJZ2MzUnliMnRsTFd4cGJtVmpZWEE5SW5KdmRXNWtJaUJ6ZEhKdmEyVXRiR2x1WldwdmFXNDlJbkp2ZFc1a0lpQm1hV3gwWlhJOUluVnliQ2dqWjJ4dmR5a2lMejRLSUNBOElTMHRJRk5VSUhObFoyMWxiblFnTFMwK0NpQWdQR3hwYm1VZ2VERTlJakl4TUNJZ2VURTlJakkxTmlJZ2VESTlJakkyTUNJZ2VUSTlJakkxTmlJZ2MzUnliMnRsUFNKMWNtd29JM1J5WVdObEtTSWdjM1J5YjJ0bExYZHBaSFJvUFNJeE1pSWdjM1J5YjJ0bExXeHBibVZqWVhBOUluSnZkVzVrSWk4K0NpQWdQQ0V0TFNCVUlIZGhkbVVnTFMwK0NpQWdQSEJoZEdnZ1pEMGlUVEkyTUN3eU5UWWdVVEk0TlN3eE9UQWdNekV3TERJMU5pSWdabWxzYkQwaWJtOXVaU0lnYzNSeWIydGxQU0oxY213b0kzUnlZV05sS1NJZ2MzUnliMnRsTFhkcFpIUm9QU0l4TWlJZ2MzUnliMnRsTFd4cGJtVmpZWEE5SW5KdmRXNWtJaUJ6ZEhKdmEyVXRiR2x1WldwdmFXNDlJbkp2ZFc1a0lpOCtDaUFnUENFdExTQkNZWE5sYkdsdVpTQnlhV2RvZENBdExUNEtJQ0E4YkdsdVpTQjRNVDBpTXpFd0lpQjVNVDBpTWpVMklpQjRNajBpTXpnd0lpQjVNajBpTWpVMklpQnpkSEp2YTJVOUluVnliQ2dqZEhKaFkyVXBJaUJ6ZEhKdmEyVXRkMmxrZEdnOUlqRXlJaUJ6ZEhKdmEyVXRiR2x1WldOaGNEMGljbTkxYm1RaUx6NEtJQ0E4SVMwdElGSmxaQ0JrYjNRZ2IyNGdVaUJ3WldGcklDaFJVbE1nY0dWaGF5a2dMUzArQ2lBZ1BHTnBjbU5zWlNCamVEMGlNVGM0SWlCamVUMGlNVEF3SWlCeVBTSXhPQ0lnWm1sc2JEMGlJMFZHTkRRME5DSWdiM0JoWTJsMGVUMGlNQzQ1TlNJZ1ptbHNkR1Z5UFNKMWNtd29JMmRzYjNjcElpOCtDaUFnUEdOcGNtTnNaU0JqZUQwaU1UYzRJaUJqZVQwaU1UQXdJaUJ5UFNJeE1DSWdabWxzYkQwaUkwWkRRVFZCTlNJdlBnb2dJRHdoTFMwZ1ZGWWdiR0ZpWld3Z1ltOTBkRzl0SUMwdFBnb2dJRHgwWlhoMElIZzlJakkxTmlJZ2VUMGlORFl3SWlCMFpYaDBMV0Z1WTJodmNqMGliV2xrWkd4bElpQm1iMjUwTFdaaGJXbHNlVDBpYzNsemRHVnRMWFZwTEhOaGJuTXRjMlZ5YVdZaUlHWnZiblF0YzJsNlpUMGlOVElpSUdadmJuUXRkMlZwWjJoMFBTSTRNREFpSUdacGJHdzlJaU16UWpneVJqWWlJRzl3WVdOcGRIazlJakF1T1NJK1ZGYkN0MVJUVmp3dmRHVjRkRDRLUEM5emRtYysiLAogICAgICAic2l6ZXMiOiAiNTEyeDUxMiIsCiAgICAgICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiLAogICAgICAicHVycG9zZSI6ICJhbnkgbWFza2FibGUiCiAgICB9CiAgXQp9">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwRDFCMzUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMEEwRjFFIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJ0cmFjZSIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjAiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMjU2M0VCIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzYwQTVGQSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9Imdsb3ciPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIzIiByZXN1bHQ9ImJsdXIiLz4KICAgICAgPGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJibHVyIi8+PGZlTWVyZ2VOb2RlIGluPSJTb3VyY2VHcmFwaGljIi8+PC9mZU1lcmdlPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgogIDwhLS0gQmFja2dyb3VuZCByb3VuZGVkIHNxdWFyZSAtLT4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMCIgZmlsbD0idXJsKCNiZykiLz4KICA8IS0tIFN1YnRsZSBncmlkIC0tPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEwIiBmaWxsPSJub25lIiBzdHJva2U9IiMxRTNBNUYiIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC4zIi8+CiAgPGxpbmUgeDE9IjE3MCIgeTE9IjgwIiB4Mj0iMTcwIiB5Mj0iNDMyIiBzdHJva2U9IiMxRTNBNUYiIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC40Ii8+CiAgPGxpbmUgeDE9IjM0MCIgeTE9IjgwIiB4Mj0iMzQwIiB5Mj0iNDMyIiBzdHJva2U9IiMxRTNBNUYiIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC40Ii8+CiAgPGxpbmUgeDE9IjgwIiB5MT0iMTcwIiB4Mj0iNDMyIiB5Mj0iMTcwIiBzdHJva2U9IiMxRTNBNUYiIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC40Ii8+CiAgPGxpbmUgeDE9IjgwIiB5MT0iMzQwIiB4Mj0iNDMyIiB5Mj0iMzQwIiBzdHJva2U9IiMxRTNBNUYiIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC40Ii8+CiAgPCEtLSBFQ0cgYmFzZWxpbmUgbGVmdCAtLT4KICA8bGluZSB4MT0iMzAiIHkxPSIyNTYiIHgyPSIxMDAiIHkyPSIyNTYiIHN0cm9rZT0idXJsKCN0cmFjZSkiIHN0cm9rZS13aWR0aD0iMTIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDwhLS0gUCB3YXZlIC0tPgogIDxwYXRoIGQ9Ik0xMDAsMjU2IFExMTIsMjIwIDEyNCwyNTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCN0cmFjZSkiIHN0cm9rZS13aWR0aD0iMTIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDwhLS0gUFIgc2VnbWVudCAtLT4KICA8bGluZSB4MT0iMTI0IiB5MT0iMjU2IiB4Mj0iMTQ4IiB5Mj0iMjU2IiBzdHJva2U9InVybCgjdHJhY2UpIiBzdHJva2Utd2lkdGg9IjEyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8IS0tIFFSUyBjb21wbGV4IC0gd2lkZSBiaXphcnJlIChUViBwYXR0ZXJuKSAtLT4KICA8cG9seWxpbmUgcG9pbnRzPSIxNDgsMjU2IDE2MiwyODAgMTc4LDEwMCAxOTQsNDIwIDIxMCwyNTYiIAogICAgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI3RyYWNlKSIgc3Ryb2tlLXdpZHRoPSIxNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICA8IS0tIFNUIHNlZ21lbnQgLS0+CiAgPGxpbmUgeDE9IjIxMCIgeTE9IjI1NiIgeDI9IjI2MCIgeTI9IjI1NiIgc3Ryb2tlPSJ1cmwoI3RyYWNlKSIgc3Ryb2tlLXdpZHRoPSIxMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPCEtLSBUIHdhdmUgLS0+CiAgPHBhdGggZD0iTTI2MCwyNTYgUTI4NSwxOTAgMzEwLDI1NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI3RyYWNlKSIgc3Ryb2tlLXdpZHRoPSIxMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPCEtLSBCYXNlbGluZSByaWdodCAtLT4KICA8bGluZSB4MT0iMzEwIiB5MT0iMjU2IiB4Mj0iMzgwIiB5Mj0iMjU2IiBzdHJva2U9InVybCgjdHJhY2UpIiBzdHJva2Utd2lkdGg9IjEyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8IS0tIFJlZCBkb3Qgb24gUiBwZWFrIChRUlMgcGVhaykgLS0+CiAgPGNpcmNsZSBjeD0iMTc4IiBjeT0iMTAwIiByPSIxOCIgZmlsbD0iI0VGNDQ0NCIgb3BhY2l0eT0iMC45NSIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+CiAgPGNpcmNsZSBjeD0iMTc4IiBjeT0iMTAwIiByPSIxMCIgZmlsbD0iI0ZDQTVBNSIvPgogIDwhLS0gVFYgbGFiZWwgYm90dG9tIC0tPgogIDx0ZXh0IHg9IjI1NiIgeT0iNDYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic3lzdGVtLXVpLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNTIiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiMzQjgyRjYiIG9wYWNpdHk9IjAuOSI+VFbCt1RTVjwvdGV4dD4KPC9zdmc+">
+  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwRDFCMzUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMEEwRjFFIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJ0cmFjZSIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjAiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMjU2M0VCIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzYwQTVGQSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9Imdsb3ciPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIzIiByZXN1bHQ9ImJsdXIiLz4KICAgICAgPGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJibHVyIi8+PGZlTWVyZ2VOb2RlIGluPSJTb3VyY2VHcmFwaGljIi8+PC9mZU1lcmdlPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgogIDwhLS0gQmFja2dyb3VuZCByb3VuZGVkIHNxdWFyZSAtLT4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMCIgZmlsbD0idXJsKCNiZykiLz4KICA8IS0tIFN1YnRsZSBncmlkIC0tPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTEwIiBmaWxsPSJub25lIiBzdHJva2U9IiMxRTNBNUYiIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC4zIi8+CiAgPGxpbmUgeDE9IjE3MCIgeTE9IjgwIiB4Mj0iMTcwIiB5Mj0iNDMyIiBzdHJva2U9IiMxRTNBNUYiIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC40Ii8+CiAgPGxpbmUgeDE9IjM0MCIgeTE9IjgwIiB4Mj0iMzQwIiB5Mj0iNDMyIiBzdHJva2U9IiMxRTNBNUYiIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC40Ii8+CiAgPGxpbmUgeDE9IjgwIiB5MT0iMTcwIiB4Mj0iNDMyIiB5Mj0iMTcwIiBzdHJva2U9IiMxRTNBNUYiIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC40Ii8+CiAgPGxpbmUgeDE9IjgwIiB5MT0iMzQwIiB4Mj0iNDMyIiB5Mj0iMzQwIiBzdHJva2U9IiMxRTNBNUYiIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC40Ii8+CiAgPCEtLSBFQ0cgYmFzZWxpbmUgbGVmdCAtLT4KICA8bGluZSB4MT0iMzAiIHkxPSIyNTYiIHgyPSIxMDAiIHkyPSIyNTYiIHN0cm9rZT0idXJsKCN0cmFjZSkiIHN0cm9rZS13aWR0aD0iMTIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDwhLS0gUCB3YXZlIC0tPgogIDxwYXRoIGQ9Ik0xMDAsMjU2IFExMTIsMjIwIDEyNCwyNTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCN0cmFjZSkiIHN0cm9rZS13aWR0aD0iMTIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDwhLS0gUFIgc2VnbWVudCAtLT4KICA8bGluZSB4MT0iMTI0IiB5MT0iMjU2IiB4Mj0iMTQ4IiB5Mj0iMjU2IiBzdHJva2U9InVybCgjdHJhY2UpIiBzdHJva2Utd2lkdGg9IjEyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8IS0tIFFSUyBjb21wbGV4IC0gd2lkZSBiaXphcnJlIChUViBwYXR0ZXJuKSAtLT4KICA8cG9seWxpbmUgcG9pbnRzPSIxNDgsMjU2IDE2MiwyODAgMTc4LDEwMCAxOTQsNDIwIDIxMCwyNTYiIAogICAgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI3RyYWNlKSIgc3Ryb2tlLXdpZHRoPSIxNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICA8IS0tIFNUIHNlZ21lbnQgLS0+CiAgPGxpbmUgeDE9IjIxMCIgeTE9IjI1NiIgeDI9IjI2MCIgeTI9IjI1NiIgc3Ryb2tlPSJ1cmwoI3RyYWNlKSIgc3Ryb2tlLXdpZHRoPSIxMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPCEtLSBUIHdhdmUgLS0+CiAgPHBhdGggZD0iTTI2MCwyNTYgUTI4NSwxOTAgMzEwLDI1NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI3RyYWNlKSIgc3Ryb2tlLXdpZHRoPSIxMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPCEtLSBCYXNlbGluZSByaWdodCAtLT4KICA8bGluZSB4MT0iMzEwIiB5MT0iMjU2IiB4Mj0iMzgwIiB5Mj0iMjU2IiBzdHJva2U9InVybCgjdHJhY2UpIiBzdHJva2Utd2lkdGg9IjEyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8IS0tIFJlZCBkb3Qgb24gUiBwZWFrIChRUlMgcGVhaykgLS0+CiAgPGNpcmNsZSBjeD0iMTc4IiBjeT0iMTAwIiByPSIxOCIgZmlsbD0iI0VGNDQ0NCIgb3BhY2l0eT0iMC45NSIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+CiAgPGNpcmNsZSBjeD0iMTc4IiBjeT0iMTAwIiByPSIxMCIgZmlsbD0iI0ZDQTVBNSIvPgogIDwhLS0gVFYgbGFiZWwgYm90dG9tIC0tPgogIDx0ZXh0IHg9IjI1NiIgeT0iNDYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic3lzdGVtLXVpLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNTIiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiMzQjgyRjYiIG9wYWNpdHk9IjAuOSI+VFbCt1RTVjwvdGV4dD4KPC9zdmc+">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ECG TV-TSV">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#0A0F1E">
+  <meta name="application-name" content="ECG TV-TSV">
+  <meta name="description" content="Calculadora de QRS Largo: TV vs TSV com IA — Brugada, Vereckei, VT Score, Pava, Griffith">
+  <style>
   :root {
     --bg: #0A0F1E;
     --surface: #111827;
@@ -300,6 +310,41 @@
     border: 1px solid var(--border);
   }
 </style>
+
+  <script>
+    if('serviceWorker' in navigator){
+      window.addEventListener('load', function(){
+        // Inline service worker as blob
+        const swCode = `
+          self.addEventListener('install', e => self.skipWaiting());
+          self.addEventListener('activate', e => e.waitUntil(clients.claim()));
+          self.addEventListener('fetch', e => e.respondWith(fetch(e.request).catch(() => caches.match(e.request))));
+        `;
+        const blob = new Blob([swCode], {type:'application/javascript'});
+        const swUrl = URL.createObjectURL(blob);
+        navigator.serviceWorker.register(swUrl).catch(()=>{});
+      });
+    }
+    // PWA install prompt
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      // Show install button if exists
+      const btn = document.getElementById('installBtn');
+      if(btn) btn.style.display = 'flex';
+    });
+    function installApp(){
+      if(deferredPrompt){
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(() => { deferredPrompt = null; });
+      }
+    }
+    window.addEventListener('appinstalled', () => {
+      const btn = document.getElementById('installBtn');
+      if(btn) btn.style.display = 'none';
+    });
+  </script>
 </head>
 <body>
 
@@ -330,18 +375,26 @@
   <!-- ═══ PAINEL 0: ANÁLISE POR IA ═══ -->
   <div class="panel active" id="panel-ia">
 
-    <!-- API KEY -->
-    <div style="background:#0F1929;border:1.5px solid #1E2D45;border-radius:10px;padding:14px;margin-bottom:16px;">
-      <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#64748B;margin-bottom:8px;">🔑 Chave API Anthropic</div>
-      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
-        <input id="apiKeyInput" type="password" placeholder="sk-ant-api03-..." autocomplete="off"
-          style="flex:1;min-width:200px;padding:8px 12px;border-radius:8px;font-size:13px;background:#1A2235;border:1.5px solid #1E2D45;color:#F1F5F9;outline:none;font-family:monospace;">
-        <button onclick="toggleKeyVisibility()" style="padding:8px 12px;border-radius:8px;font-size:12px;background:transparent;border:1px solid #1E2D45;color:#64748B;cursor:pointer;font-family:inherit;">Mostrar</button>
-        <button onclick="saveKey()" style="padding:8px 14px;border-radius:8px;font-size:12px;background:#1D3461;border:1px solid #3B82F6;color:#3B82F6;cursor:pointer;font-family:inherit;font-weight:600;">Salvar</button>
+    <!-- CHAVE EMBUTIDA -->
+    <div style="background:#064E3B;border:1.5px solid #10B981;border-radius:10px;padding:12px 14px;margin-bottom:16px;display:flex;align-items:center;gap:10px;">
+      <span style="font-size:18px;">&#128273;</span>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:#10B981;">Chave API configurada</div>
+        <div style="font-size:11px;color:#64748B;">Pronta para uso &mdash; carregue a imagem do ECG e clique em Analisar.</div>
       </div>
-      <div id="keyStatus" style="font-size:11px;color:#64748B;margin-top:6px;">A chave fica salva apenas neste navegador (localStorage). Nunca é enviada a servidores externos.</div>
     </div>
+    <input id="apiKeyInput" type="hidden">
 
+
+    <!-- INSTALL APP BUTTON -->
+    <div id="installBtn" style="display:none;background:#064E3B;border:1.5px solid #10B981;border-radius:10px;padding:12px 14px;margin-bottom:16px;align-items:center;gap:12px;cursor:pointer;" onclick="installApp()">
+      <div style="width:40px;height:40px;background:#0A0F1E;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;">📲</div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#10B981;">Instalar como App</div>
+        <div style="font-size:11px;color:#64748B;">Toque aqui para adicionar à tela inicial do celular</div>
+      </div>
+      <div style="margin-left:auto;font-size:18px;">→</div>
+    </div>
     <!-- UPLOAD ZONE -->
     <div style="margin-bottom:16px;">
       <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#64748B;margin-bottom:8px;">📷 ECG — carregar imagem</div>
@@ -1099,32 +1152,23 @@ function copyLaudo(){
 
 
 // ── AI ANALYSIS ──────────────────────────────────────────────────────────
-let storedKey = localStorage.getItem('anthropic_key') || '';
+let storedKey = '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';
 let currentImageB64 = '';
 let currentImageType = 'image/jpeg';
 let aiExtracted = {};
 
-function saveKey(){
-  const k = document.getElementById('apiKeyInput').value.trim();
-  if(!k){ showKeyStatus('Cole a chave antes de salvar.','#EF4444'); return; }
-  localStorage.setItem('anthropic_key', k);
-  storedKey = k;
-  showKeyStatus('✓ Chave salva com segurança no navegador.','#10B981');
-  checkAnalyzeReady();
-}
+function promptKey(){}
 
-function toggleKeyVisibility(){
-  const inp = document.getElementById('apiKeyInput');
-  inp.type = inp.type === 'password' ? 'text' : 'password';
-}
+function updateKeyUI(){}
 
-function showKeyStatus(msg, color){
-  const el = document.getElementById('keyStatus');
-  el.textContent = msg; el.style.color = color;
-}
+function saveKey(){}
+
+function toggleKeyVisibility(){}
+
+function showKeyStatus(msg,color){}
 
 function checkAnalyzeReady(){
-  const hasKey = !!(storedKey || document.getElementById('apiKeyInput').value.trim());
+  const hasKey = !!(storedKey && storedKey.startsWith('sk-ant-'));
   const hasImg = !!currentImageB64;
   document.getElementById('analyzeBtn').disabled = !(hasKey && hasImg);
   if(hasKey && hasImg){
@@ -1172,7 +1216,7 @@ function processFile(file){
 
 async function analyzeECG(){
   const key = storedKey || document.getElementById('apiKeyInput').value.trim();
-  if(!key){ showKeyStatus('⚠ Insira sua chave API primeiro.','#EF4444'); return; }
+  if(!key || key === 'COLE_SUA_CHAVE_AQUI'){ alert('Edite o arquivo HTML e substitua COLE_SUA_CHAVE_AQUI pela sua chave sk-ant-.'); return; }
   if(!currentImageB64){ alert('Carregue uma imagem primeiro.'); return; }
 
   document.getElementById('progressWrap').style.display = 'block';
@@ -1243,7 +1287,7 @@ Critérios de preenchimento:
         'anthropic-dangerous-direct-browser-access': 'true',
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
+        model: 'claude-sonnet-4-5',
         max_tokens: 1500,
         messages: [{
           role: 'user',
@@ -1417,12 +1461,7 @@ function setPillByVal(group, val, color){
 }
 
 // ── INIT AI ──────────────────────────────────────────────────────────────
-window.addEventListener('DOMContentLoaded', () => {
-  if(storedKey){
-    document.getElementById('apiKeyInput').value = storedKey;
-    showKeyStatus('✓ Chave carregada do navegador.','#10B981');
-  }
-});
+window.addEventListener('DOMContentLoaded', function(){ checkAnalyzeReady(); });
 
 // ── INIT ──────────────────────────────────────────────────────────────────
 buildVTScoreItems();
